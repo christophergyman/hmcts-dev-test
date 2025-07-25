@@ -38,4 +38,17 @@ public class CaseWorkerServiceController {
         return ok(String.format("ID: %d\nName: %s\nTask: %s", caseWorker.getId(), caseWorker.getName(),
                 caseWorker.getTasks()));
     }
+
+    // delete specific CaseWorker from the CaseWorkerService
+    @GetMapping(value = "/deleteCaseWorker", produces = "application/json")
+    public ResponseEntity<String> deleteCaseWorker(@RequestParam int id) {
+        caseWorkerService.removeCaseWorkerFromService(id);
+        return ok("Case Worker has been deleted");
+    }
+
+    // get all caseworkers in caseworker service
+    @GetMapping(value = "/getAllCaseWorkers", produces = "application/json")
+    public ResponseEntity<CaseWorkerService> getAllCaseWorkers() {
+        return ok(caseWorkerService);
+    }
 }
