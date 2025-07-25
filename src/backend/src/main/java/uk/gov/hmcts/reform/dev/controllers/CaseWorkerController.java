@@ -16,7 +16,6 @@ public class CaseWorkerController {
             @RequestParam int id,
             @RequestParam String firstName,
             @RequestParam String task) {
-
         CaseWorker newCaseWorker = new CaseWorker(id, firstName, task);
 
         // todo: need to add caseworker to CaseWorkerService
